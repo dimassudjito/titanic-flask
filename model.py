@@ -45,3 +45,7 @@ print(accuracy_score(y_test, y_pred))
 import joblib
 joblib.dump(classifier, 'model.pkl')
 print("Model sucesfully dumped")
+
+# Save standard scaler
+joblib.dump(sc, 'sc.pkl')
+print("Standard scaler sucesfully dumped")
