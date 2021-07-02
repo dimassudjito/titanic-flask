@@ -40,3 +40,8 @@ y_pred = classifier.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
 print(accuracy_score(y_test, y_pred))
+
+# Save the model
+import joblib
+joblib.dump(classifier, 'model.pkl')
+print("Model sucesfully dumped")
