@@ -46,6 +46,7 @@ import joblib
 joblib.dump(classifier, 'model.pkl')
 print("Model sucesfully dumped")
 
-# Save standard scaler
+# Save standard scaler and categorical data encoder
 joblib.dump(sc, 'sc.pkl')
-print("Standard scaler sucesfully dumped")
+joblib.dump(ct, 'ct.pkl')
+print("Standard scaler and categorical data encoder sucesfully dumped")

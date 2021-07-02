@@ -10,10 +10,10 @@ app = Flask(__name__)
 def predict():
     if classifier:
         try:
-            input = request.json
-            print('raw: ', [input])
-            input_sc = sc.transform([input])
-            print('sc: ', input_sc)
+            input = [request.json]
+            print('raw: ', input)
+            input_ct = ct.transform(input)
+            input_sc = sc.transform(input_ct)
             prediction = classifier.predict(input_sc)
             return jsonify({'prediction': str(prediction)})
         except:
@@ -25,5 +25,6 @@ def predict():
 if __name__ == '__main__':
     classifier = joblib.load("model.pkl")
     sc = joblib.load("sc.pkl")
+    ct = joblib.load("ct.pkl")
     print ('Model loaded')
     app.run(port=5050, debug=True)
